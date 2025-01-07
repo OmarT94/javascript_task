@@ -81,6 +81,6 @@ function printTree(n:number){
    }
 
 }
-printTree(6);
+printTree(5);
 
 
