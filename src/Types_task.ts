@@ -70,8 +70,6 @@ function printAllStudents(students: Student[]): void {
         console.log(); // Leerzeile zwischen den Ausgaben
     });
 }
-
-// Beispiel:
 const students: Student[] = [
     {
         firstName: "Anton",
@@ -87,10 +85,40 @@ const students: Student[] = [
     },
     {
         firstName: "Cäsar",
-        lastName: "Schmidt",
+        lastName: "SchmidtVonHamburg_Altona______",
         age: 17,
         grades: ["A", 1, undefined, 3, 2, 4, 5],
     },
 ];
 printAllStudents(students);
 
+console.log();
+console.log("Aufgabe Bonus 1");
+
+function printStudentWithNameLong(student: Student): void {
+
+    const nameLong= `${student.firstName} ${student.lastName} (${student.age})`;
+    const separator = '='.repeat(nameLong.length);
+    const formattedGrades = student.grades.map((grade) =>
+        grade === undefined ? "*" : grade
+    );
+
+    console.log(nameLong);
+    console.log(separator);
+    console.log(`Grades: ${formattedGrades.join(',')}`);
+
+}
+
+function printAllStudentsWithSeparator(students: Student[]): void {
+    students.forEach((student) => {
+        printStudentWithNameLong(student);
+        console.log(); // Empty line for spacing between students
+    });
+}
+printAllStudentsWithSeparator(students);
+
+console.log();
+console.log("Aufgabe Bonus 2");
+type SubjectGrades = {
+    [subject: string]: (number | string | undefined)[];
+};
